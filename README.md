@@ -3,6 +3,7 @@
 
 26/01/2025
 Problem 1(HackerRank)
+Java Inheritance 2
 
 Problem Statement ::
 
@@ -45,4 +46,83 @@ public class Solution {
     System.out.println("My superclass is: " + adder.getClass().getSuperclass().getName()); 
     System.out.println(adder.add(30, 12) + " " + adder.add(10, 3) + " " + adder.add(15, 5));
   } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+27/01/2025
+Problem 2(HackerRank)
+Java Abstract class
+Problem Statement :: 
+A Java abstract class is a class that can't be instantiated. That means you cannot create new instances of an abstract class. It works as a base for subclasses. You should learn about Java Inheritance before attempting this challenge.
+If you try to create an instance of this class like the following line you will get an error:
+Book new_novel=new Book(); 
+You have to create another class that extends the abstract class. Then you can create an instance of the new class.
+Notice that setTitle method is abstract too and has no body. That means you must implement the body of that method in the child class.
+In the editor, we have provided the abstract Book class and a Main class. In the Main class, we created an instance of a class called MyBook. Your task is to write just the MyBook class.
+Your class mustn't be public.
+
+Coding Platform :: HackerRank
+
+Approach and Explaination ::
+
+In this problem we will use abstract and Inheritance concept to achieve this 
+1. Structure of Program
+    - In this we defines an abstract class 'Book' and a concrete subclass 'MyBook'. The abstract class sets up a basic structure for a book object, while the subclass MyBook provides the implementation for setting the book's title.
+2. Abstract Class(Book)
+   - Book is a abstract class. The Book has a protected instance variable 'title' which stores the title of the book.
+   - The setTitle method is abstract, and the getTitle method is concrete and provides the functionality to retrieve the value of the title.
+
+3. Concrete Class(MyBook)
+   - MyBook is a subclass of Book and implements the abstract method setTitle. This method assigns the provided string s to the title instance variable.
+
+Solution : Code :: 
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        MyBook myBook = new MyBook();
+        String title = sc.nextLine();
+        myBook.setTitle(title);
+        System.out.println("The title is: " + myBook.getTitle());
+    }
+    
+    abstract static class Book { 
+        protected String title;
+        
+        abstract void setTitle(String s);
+        
+        String getTitle() { 
+            return title;
+        }
+    }
+    
+    static class MyBook extends Book { 
+        @Override 
+        void setTitle(String s) { 
+            title = s;
+        } 
+    }
 }
