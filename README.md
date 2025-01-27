@@ -24,12 +24,25 @@ The Arithmetic class defines a method add that accepts two integer parameters (a
 Adder Class
 The Adder class extends Arithmetic. By doing so, it inherits the add method from Arithmetic and can use it without needing to implement it again.
 Solution Class -This class contains the main method. An Adder object is created, and the add method is called with different sets of integers. However, in the problem context, no input/output is needed from us, as the code testing framework will handle that.
+
 Solution :: code
 
-import java.io.; import java.util.;
+import java.io.; 
+import java.util.;
 
-class Arithmetic { int add(int a, int b) { return a + b; } }
+class Arithmetic { 
+  int add(int a, int b) { 
+      return a + b;
+      } 
+  }
 
-class Adder extends Arithmetic { }
+class Adder extends Arithmetic { 
+  }
 
-public class Solution { public static void main(String[] args) { Adder adder = new Adder(); System.out.println("My superclass is: " + adder.getClass().getSuperclass().getName()); System.out.println(adder.add(30, 12) + " " + adder.add(10, 3) + " " + adder.add(15, 5)); } }
+public class Solution { 
+  public static void main(String[] args) { 
+    Adder adder = new Adder(); 
+    System.out.println("My superclass is: " + adder.getClass().getSuperclass().getName()); 
+    System.out.println(adder.add(30, 12) + " " + adder.add(10, 3) + " " + adder.add(15, 5));
+  } 
+}
