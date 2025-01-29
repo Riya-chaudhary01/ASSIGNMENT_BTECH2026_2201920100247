@@ -148,7 +148,7 @@ public class Solution {
 
 
 ## 28/01/2025
-Problem 2(HackerRank)
+Problem 3(HackerRank)
 Java Inheritance 1
 Problem Statement :: 
 Using inheritance, one class can acquire the properties of others. Consider the following Animal class:
@@ -209,5 +209,68 @@ public class Solution {
         bird.walk();
         bird.fly();
         bird.sing();
+    }
+}*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 29/01/2025
+Problem 4(HackerRank)
+Java Interface
+Problem Statement ::
+A Java interface can only contain method signatures and fields. The interface can be used to achieve polymorphism. In this problem, you will practice your knowledge on interfaces.
+You are given an interface AdvancedArithmetic which contains a method signature int divisor_sum(int n). You need to write a class called MyCalculator which implements the interface.
+divisorSum function just takes an integer as input and return the sum of all its divisors. For example divisors of 6 are 1, 2, 3 and 6, so divisor_sum should return 12. The value of n will be at most 1000.
+Read the partially completed code in the editor and complete it. You just need to write the MyCalculator class only. Your class shouldn't be public.
+
+
+Coding Platform :: HackerRank
+
+Approach And Explaination :: 
+The program starts by asking the user to input a number, n, using the Scanner class. This number will be the one for which we need to calculate the sum of all its divisors. There’s an interface called AdvancedArithmetic, which defines a method divisor_sum(int n). This method will be responsible for calculating the sum of divisors of the given number n. An interface is like a promise: any class that implements this interface must provide its own version of the divisor_sum method. The class Calculator implements the AdvancedArithmetic interface. Inside the class, the method divisor_sum is implemented. The method goes through each number from 1 to n and checks if it divides n evenly. If it does, that number is added to the sum. The program ensures the input n is between 1 and 1000, as we only want to work with numbers within this range. 
+
+**Solution** :: Code
+*import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        Calculator calc = new Calculator();
+        System.out.println("I implemented: AdvancedArithmetic");
+        System.out.println(calc.divisor_sum(n));
+        sc.close();
+    }
+} interface AdvancedArithmetic{
+    public int divisor_sum(int n); 
+}
+class Calculator implements AdvancedArithmetic{
+    @Override
+    public int divisor_sum(int n ){
+        int sum =0;
+         if(n>=1 && n<=1000){
+            for(int i = 1 ; i <=n ; i++){
+                if(n%i ==0){
+                    sum+=i;
+                }
+            }
+         }
+         return sum;
     }
 }*
