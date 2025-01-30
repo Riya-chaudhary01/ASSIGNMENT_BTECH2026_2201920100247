@@ -26,7 +26,7 @@ The Adder class extends Arithmetic. By doing so, it inherits the add method from
 Solution Class -This class contains the main method. An Adder object is created, and the add method is called with different sets of integers. However, in the problem context, no input/output is needed from us, as the code testing framework will handle that.
 
 **Solution** :: code
-
+```
 import java.io.; 
 import java.util.;
 
@@ -46,7 +46,7 @@ public class Solution {
     System.out.println(adder.add(30, 12) + " " + adder.add(10, 3) + " " + adder.add(15, 5));
   } 
 }
-
+```
 
 
 
@@ -94,7 +94,7 @@ In this problem we will use abstract and Inheritance concept to achieve this
    - MyBook is a subclass of Book and implements the abstract method setTitle. This method assigns the provided string s to the title instance variable.
 
 **Solution** : Code :: 
-
+```
 import java.io.*;
 import java.util.*;
 
@@ -125,6 +125,7 @@ public class Solution {
         } 
     }
 }
+```
 
 
 
@@ -185,7 +186,8 @@ In Solution class we have main method where we will create a Bird method and cal
 
 **Solution** :: code :: 
 
-*import java.io.*;
+```
+import java.io.*;
 import java.util.*;
 
 class Animal{
@@ -210,7 +212,8 @@ public class Solution {
         bird.fly();
         bird.sing();
     }
-}*
+}
+```
 
 
 
@@ -244,7 +247,8 @@ Approach And Explaination ::
 The program starts by asking the user to input a number, n, using the Scanner class. This number will be the one for which we need to calculate the sum of all its divisors. There’s an interface called AdvancedArithmetic, which defines a method divisor_sum(int n). This method will be responsible for calculating the sum of divisors of the given number n. An interface is like a promise: any class that implements this interface must provide its own version of the divisor_sum method. The class Calculator implements the AdvancedArithmetic interface. Inside the class, the method divisor_sum is implemented. The method goes through each number from 1 to n and checks if it divides n evenly. If it does, that number is added to the sum. The program ensures the input n is between 1 and 1000, as we only want to work with numbers within this range. 
 
 **Solution** :: Code
-*import java.io.*;
+```
+import java.io.*;
 import java.util.*;
 
 public class Solution {
@@ -273,4 +277,94 @@ class Calculator implements AdvancedArithmetic{
          }
          return sum;
     }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 30/01/2025
+Problem 5(HackerRank)
+Java Method OverRiding
+Problem Statement ::
+When a subclass inherits from a superclass, it also inherits its methods; however, it can also override the superclass methods (as well as declare and implement new ones). Consider the following Sports class:
+*class Sports{
+    String getName(){
+        return "Generic Sports";
+    }
+    void getNumberOfTeamMembers(){
+        System.out.println( "Each team has n players in " + getName() );
+    }
 }*
+Next, we create a Soccer class that inherits from the Sports class. We can override the getName method and return a different, subclass-specific string:
+*class Soccer extends Sports{
+    @Override
+    String getName(){
+        return "Soccer Class";
+    }
+}*
+Note: When overriding a method, you should precede it with the @Override annotation. The parameter(s) and return type of an overridden method must be exactly the same as those of the method inherited from the supertype.
+Complete the code in your editor by writing an overridden getNumberOfTeamMembers method that prints the same statement as the superclass' getNumberOfTeamMembers method, except that it replaces n with 11 (the number of players on a Soccer team).
+
+Coding Platform :: HackerRank
+
+Approach and Explanation :: 
+I this problem we have mainly used Inheritance, Polymorphism, and Method OverRiding. 
+1. Inhertance ::
+   - Here class Sports which is parent class for class soccer , where soccer will inherite porperties of Sports class.
+   - Class Sports have two methods as `getName()` which will return 'Generic Sports' and another method as `getNumberOfTeamMembers()` which will print a message indicating that each team has "n" players in the sport defined by getName().
+   - Class Soccer that derived from Sports it overrides both methods from the Sports class. where first method `getName()` which will return 'Soccer Class' and method `getNumberOfTeamMembers()` will print the number of players in a soccer team, i.e., "Each team has 11 players in Soccer Class".
+
+2. Method OverRiding ::
+   - getName() and getNumberOfTeamMembers() in Soccer override the respective methods in Sports. This allows us to modify the behavior of these methods in the derived class. When we call these methods on an object of type Soccer
+
+3. Polymorphism ::
+   - Even though both sport and soc are treated as if they’re of type Sports, Java figures out what kind of object they actually are behind the scenes—whether it’s a Sports or a Soccer object. Because of this, Java automatically calls the right version of the method depending on the real object type.
+  
+
+Solution :: Code 
+```
+import java.io.*;
+import java.util.*;
+
+class Sports{
+    String getName(){
+        return "Generic Sports";
+    }
+    void getNumberOfTeamMembers(){
+        System.out.println( "Each team has n players in " + getName() );
+    }
+}
+
+class Soccer extends Sports{
+    @Override
+    String getName(){
+        return "Soccer Class";
+    }
+    @Override
+    void getNumberOfTeamMembers(){
+        System.out.println( "Each team has 11 players in " + getName() );
+    }
+}
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Sports sport = new Sports();
+        Soccer soc = new Soccer();
+        System.out.println(sport.getName());
+        sport.getNumberOfTeamMembers();
+        System.out.println(soc.getName());
+        soc.getNumberOfTeamMembers();
+    }
+}
+```
