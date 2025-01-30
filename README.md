@@ -360,11 +360,11 @@ public class Solution {
 
     public static void main(String[] args) {
         Sports sport = new Sports();
-        Soccer soc = new Soccer();
+        Soccer socer = new Soccer();
         System.out.println(sport.getName());
         sport.getNumberOfTeamMembers();
-        System.out.println(soc.getName());
-        soc.getNumberOfTeamMembers();
+        System.out.println(socer.getName());
+        socer.getNumberOfTeamMembers();
     }
 }
 ```
